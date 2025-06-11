@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>OpenBreastUS: Benchmarking Neural Operators or Wave Imaging Using Breast Ultrasound Computed Tomography</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/bulma.min.css">
+    <link rel="stylesheet" href="css/index.css">
+
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 2rem 0 1rem;
+            text-align: center;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer.footer {
+            padding: 1.5rem 1rem; /* 调小上下间距 */
+            font-size: 0.9rem;     /* 字体略小 */
+            background-color: #fafafa; /* 可选，浅色背景 */
+        }
+
+        footer.footer p {
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .button.is-outlined-my {
+    background-color: transparent;
+    border: 1px solid #dbdbdb;
+    color: #363636;  /* 设置文本颜色 */
+}
+    </style>
+
+</head>
+<body>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-desktop">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h3 class="title is-2 publication-title">OpenBreastUS: Benchmarking Neural Operators or Wave Imaging Using Breast Ultrasound Computed Tomography</h3>
+                    <!-- <div class="is-size-5 publication-authors"> -->
+                        <!-- Paper authors -->
+                        <!-- <span class="author-block">Zhiming Chang<sup>1</sup>,</span>
+                        <span class="author-block">Boyang Liu<sup>2</sup>,</span>
+                        <span class="author-block">Yifei Xia<sup>1</sup>,</span>
+                        <span class="author-block">Youming Guo<sup>3</sup>,</span>
+                        <span class="author-block">
+                            <a href="http://camera.pku.edu.cn" target="_blank">Boxin Shi</a><sup>1</sup>and</span>
+                        <span class="author-block">
+                            <a href="https://ai4scientificimaging.org/"
+                               target="_blank">He Sun</a><sup>1</sup><sup>†</sup></span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="eql-cntrb"><br><sup>1</sup>Peking University
+                        <sup>2</sup>Earthrise Edu&Tech
+                        <sup>3</sup>Chinese Academy of Sciences
+                        <br><sup>†</sup>Corresponding author</span>
+                    </div> -->
+
+                    <!-- <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <span class="link-block">
+                    <a href="https://github.com/ai4imaging/3DSatellitesCode" target="_blank"
+                       class="external-link button is-normal is-rounded is-dark">
+                    <span>Code</span>
+                  </a>
+                            </span>
+
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Teaser video-->
+<section class="hero teaser">
+    <div class="container is-max-desktop">
+        <div class="hero-body " style="width: 100%; margin: 0 auto;">
+            <img src="images/fig1.jpg" style="height: auto; display: block; margin: 20px auto;">
+            <p style="text-align: justify; ">
+                <strong>Schematic diagram of a USCT system and the OpenBreastUS dataset.</strong>
+                The imaging target is placed inside an annular transducer array, with each transducer emitting waves sequentially while the others act as receivers. The OpenBreastUS dataset includes anatomically realistic human breast phantoms and their corresponding wavefields at different frequencies.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- End teaser video -->
+
+<!-- 数据集详情 -->
+<section class="section" id="Datasets">
+    <div class="container is-max-desktop content">
+        <h2 class="title">Dataset Specifications</h2>
+        <img src="images/fig2.jpg" style="width: 70%; height: auto; display: block; margin: 20px auto;">
+
+
+<p style="text-align: justify; margin-bottom: 50px;">OpenBreastUS is a large-scale wave equation dataset designed to bridge the gap between theoretical equations and practical imaging applications, consisting of <strong>8,000 breast phantoms</strong> and <strong>16,384,000 wavefields</strong>. 
+    To represent the distribution of diverse human breast types, the dataset is divided into four groups, each corresponding to a specific breast density type: 
+    <strong>heterogeneous (HET), fibroglandular (FIB), all fatty (FAT), and extremely dense (EXD)</strong>. 
+</p>
+        
+            <table class="table is-bordered is-centered is-striped">
+                <thead>
+                    <tr>
+                        <th>Breast Type</th>
+                        <th>Frequency (MHz)</th>
+                        <th>Phantoms</th>
+                        <th>Storage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- VICTRE 数据 -->
+                    <tr>
+                        <td>Heterogeneous (HET)</td>
+                        <td>0.30-0.65</td>
+                        <td>2000</td>
+                        <td>7.2TB</td>
+                    </tr>
+                    <tr>
+                        <td>Fibroglandular (FIB)</td>
+                        <td>0.30-0.65</td>
+                        <td>3000</td>
+                        <td>10.8TB</td>
+                    </tr>
+                    <tr>
+                        <td>Fatty (FAT)</td>
+                        <td>0.30-0.65</td>
+                        <td>2000</td>
+                        <td>7.2TB</td>
+                    </tr>
+                    <tr>
+                        <td>Extremely Dense (EXD)</td>
+                        <td>0.30-0.65</td>
+                        <td>1000</td>
+                        <td>3.6TB</td>
+                    </tr>
+                </tbody>
+            </table>
+    <p> The wavefields are simulated using parameters from a real annular USCT system. 
+        We focus on 8 frequencies between 300 kHz and 650 kHz, sampled at 50 kHz intervals, resulting in ROIs with approximately 50 to 100 wavenumbers. </p>
+    </div>
+</section>
+
+
+
+
+<!-- 资源部分 -->
+<section id="resources" class="section">
+    <div class="container is-max-desktop content">
+        <h2 class="title">Generation Steps</h2>
+
+        <!-- 数据获取流程 -->
+        <div class="content">
+            <!-- 步骤1 -->
+                    <h3 class="subtitle">1. Download source data from huggingface</h3>
+                    <a href="https://huggingface.co/OpenWaves" class="button is-link is-outlined-my">OpenBreastUS Dataset</a>
+        </div>
+
+            <!-- 步骤2 -->
+            <div class="content">
+                    <h3 class="subtitle">2. Prepare Speed data</h3>
+
+                    <pre class="code">>> run split_data.m</pre>
+                    <p>
+                        output: <br><em>your_project_path/organ_speed/train/train_xx.mat</em><br>
+                        <em>your_project_path/organ_speed/test/test_xx.mat</em>
+                    </p>
+                </div>
+
+            <!-- 步骤3 -->
+            <div class="content">
+                    <h3 class="subtitle">3. Launch OpenBreastUS.exe</h3>
+                    <p>This is the OpenBreastUS.exe runtime interface example. Configure the following parameters to control the data generation process. Set the speed path to your output dir from the last step, and the system will generate data and detailed log files in your specified output directory.</p>
+                    
+                    <!-- 参数输入 -->
+                            <div class="field">
+                                <label class="label">Data Type</label>
+                                <div class="control">
+                                    <div class="select">
+                                        <select>
+                                            <option value="breast">Breast</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                </div>
+
+                            <div class="field">
+                                <label class="label">CPU Cores</label>
+                                <div class="control">
+                                    <input class="input" type="number" value="40" min="16" max="64" step="4">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Frequency (kHz)</label>
+                                <div class="control">
+                                    <input class="input is-fullwidth" type="number" value="500" min="300" max="650" step="50">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Train Speed Dir</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="D:\speed_data\train">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Test Speed Dir</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="D:\speed_data\test">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Output Directory</label>
+                                <div class="control">
+                                    <input class="input" type="text" placeholder="D:\OpenBreastUS_output">
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            <!-- 系统要求 -->
+            <div class="content">
+                <h3 class="subtitle">Recommended configuration</h3>
+                            <p>16-core CPU; MATLAB 2020b+; 64GB RAM</p>
+            </div>
+    
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-12">
+                <div class="content has-text-centered">
+                    <p>
+                        © Computational Scientific Imaging Lab @ PKU, Since 2022
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>
